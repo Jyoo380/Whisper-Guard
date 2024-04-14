@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6dccd; /* Set background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .intro-container {
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-weight: bold;
+            font-size: 36px; /* Set font size for the title */
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px; /* Set font size for the subtopic */
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 50%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .files {
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro-container">
+        <h1>Say hi to your Whisper Guard!</h1>
+        <p>Discover amazing content and insights on cloud!</p>
+        <img src="https://invited-daphne-0d6.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F44ab996d-6f79-4ec3-81d2-73de3c482598%2F17fa38ed-5e66-4655-8588-ef19225b7a85%2Fchums.png?table=block&id=2e9f63d1-6fd5-4fe0-8112-8d5f6b1e8b84&spaceId=44ab996d-6f79-4ec3-81d2-73de3c482598&width=610&userId=&cache=v2" alt="Intro Image"> <!-- Replace "chums.png" with the path to your image -->
+        <form class="files" id="upload-form">
+            <input type="submit" value="Let's proceed!">
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('upload-form');
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                
+                // Redirect to another page
+                window.location.href = "/Chat"; // Replace "/another_page" with the actual URL
+            });
+        });
+    </script>
+</body>
+</html>
