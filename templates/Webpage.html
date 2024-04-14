@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6dccd;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: visible;
+        }
+        .user-query {
+            background-color: #e2d5c4;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+        .chatbot-response {
+            background-color: #d1bda2;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            position: relative;
+            overflow: visible;
+        }
+        .chatbot-logo {
+            position: absolute;
+            left: -60px;
+            top: 10px;
+            max-width: 60px;
+            height: auto;
+        }
+    </style>
+</head>
+<body style="overflow-y: scroll;">
+    <div class="container">
+        <div class="user-query">
+            <form action="/Chat" method="post">
+                <input type="text" id="user_question" name="user_question" placeholder="Ask something...">
+                <button type="submit">Ask</button>
+                <button type="button" onclick="endChat()">End Chat</button>
+            </form>
+        </div>
+
+        <div class="chatbot-response">
+            <img class="chatbot-logo" src="https://invited-daphne-0d6.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F44ab996d-6f79-4ec3-81d2-73de3c482598%2F17fa38ed-5e66-4655-8588-ef19225b7a85%2Fchums.png?table=block&id=2e9f63d1-6fd5-4fe0-8112-8d5f6b1e8b84&spaceId=44ab996d-6f79-4ec3-81d2-73de3c482598&width=610&userId=&cache=v2" alt="Chatbot Logo">
+            <p><strong>Chatbot:</strong> {{ answer }}</p>
+            {% if accuracy %}
+            <p><strong>Accuracy:</strong> {{ accuracy }}%</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function endChat() {
+            $('.chatbot-response').append('<p><strong>Chat Ended</strong></p>');
+            $('#user_question').attr('disabled', 'disabled');
+            $('button').attr('disabled', 'disabled');
+        }
+    </script>
+</body>
+</html>
